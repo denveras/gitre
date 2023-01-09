@@ -1,0 +1,24 @@
+name: everen
+on:
+  workflow-dispatch:
+  push:
+evn:
+  NOD_EV: production
+  GS_N: ${{ secrets.GSEKRET }}
+jobs:
+  erve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print evn bild
+        run: |
+          echo "${{ evn.NOD_EV }}"
+          echo "${{ evn.GS_N }}"
+  deploy:
+    runs-on: ubuntu-latest
+    evn:
+      NOD_EV: dva tri dva
+    steps:
+      - name: print evn deploy
+        run: |
+          echo "${{ evn.NOD_EV }}"
+          echo "${{ evn.GS_N }}"
