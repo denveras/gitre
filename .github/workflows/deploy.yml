@@ -3,12 +3,19 @@ on:
   push:
     branches: 
       - master
+    # paths-ignore:
+    #   - '.github/workflows/*'
 jobs:
   vipolnaem_rabotu:
     runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
+      - name: cache deps
+        uses: actions/cache@v3
+          with: 
+            path: ~/.npm
+            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run test
@@ -19,6 +26,11 @@ jobs:
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
+      - name: cache deps
+        uses: actions/cache@v3
+          with: 
+            path: ~/.npm
+            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run lint
@@ -29,9 +41,14 @@ jobs:
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
+      - name: cache deps
+        uses: actions/cache@v3
+          with: 
+            path: ~/.npm
+            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run build
         run: npm run build
       - name: rabota deploq idet
-        run: echo rabota idet...
+        run: echo rabota idet...;
