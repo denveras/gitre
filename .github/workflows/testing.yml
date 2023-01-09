@@ -9,4 +9,4 @@ jobs:
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run test
-        run: npm run testa
+        run: npm run test
