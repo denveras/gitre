@@ -16,9 +16,10 @@ jobs:
           path: build
           name: build_file
   deploy:
+    needs: build_name
     runs-on: ubuntu-latest
     steps:
       - name: get build proekt
-        uses: actions/dowload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: build_file
