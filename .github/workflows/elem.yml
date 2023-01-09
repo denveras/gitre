@@ -1,6 +1,6 @@
 name: everen
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   push:
 evn:
   NOD_EV: production
