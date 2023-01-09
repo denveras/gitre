@@ -1,0 +1,16 @@
+name: razvertivanie deploy
+on: push
+jobs:
+  dzob_vmeste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: poluchit` repositoriy kode
+        uses: actions/checkout@v3
+      - name: ustanovka zavisimosti
+        run: npm ci
+      - name: run test
+        run: npm run test
+      - name: run build
+        run: npm run build
+      - name: rabota deploq idet
+        run: echo rabota idet...
