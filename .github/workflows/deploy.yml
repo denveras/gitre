@@ -21,7 +21,6 @@ jobs:
       - name: run test
         run: npm run test
   proverka_coda_lint:
-    needs: vipolnaem_rabotu
     runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
@@ -37,7 +36,7 @@ jobs:
         run: npm run lint
   sozdanie_koda_bild:
     runs-on: ubuntu-latest
-    needs: proverka_coda_lint
+    needs: [proverka_coda_lint, vipolnaem_rabotu]
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
