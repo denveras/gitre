@@ -1,12 +1,12 @@
 name: test gitre app react
 on: push
 jobs:
-	vipolnaem_rabotu:
-		run-on: ubuntu-latest
-		steps:
-			- name: poluchit` repositoriy kode
-				uses: actions/checkout@v3
-			- name: ustanovka zavisimosti
-				run: npm ci
-			- name: run test
-				run: npm run test
+  vipolnaem_rabotu:
+    run-on: ubuntu-latest
+    steps:
+      - name: poluchit` repositoriy kode
+        uses: actions/checkout@v3
+      - name: ustanovka zavisimosti
+        run: npm ci
+      - name: run test
+        run: npm run testa
