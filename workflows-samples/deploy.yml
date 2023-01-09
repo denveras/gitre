@@ -1,7 +1,7 @@
 name: razvertivanie deploy
 on: push
 jobs:
-  dzob_vmeste:
+  vipolnaem_rabotu:
     runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
@@ -10,6 +10,24 @@ jobs:
         run: npm ci
       - name: run test
         run: npm run test
+  proverka_coda_lint:
+    needs: vipolnaem_rabotu
+    runs-on: ubuntu-latest
+    steps:
+      - name: poluchit` repositoriy kode
+        uses: actions/checkout@v3
+      - name: ustanovka zavisimosti
+        run: npm ci
+      - name: run lint
+        run: npm run lint
+  sozdanie_koda_bild:
+    runs-on: ubuntu-latest
+    needs: proverka_coda_lint
+    steps:
+      - name: poluchit` repositoriy kode
+        uses: actions/checkout@v3
+      - name: ustanovka zavisimosti
+        run: npm ci
       - name: run build
         run: npm run build
       - name: rabota deploq idet
