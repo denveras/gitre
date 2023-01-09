@@ -10,7 +10,7 @@ jobs:
         run: npm ci
       - name: run test
         run: npm run test
-  proverka coda lint:
+  proverka_coda_lint:
     runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
@@ -19,7 +19,7 @@ jobs:
         run: npm ci
       - name: run lint
         run: npm run lint
-  sozdanie koda bild:
+  sozdanie_koda_bild:
     runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
