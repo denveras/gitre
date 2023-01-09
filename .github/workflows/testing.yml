@@ -2,7 +2,7 @@ name: test gitre app react
 on: push
 jobs:
   vipolnaem_rabotu:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
