@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v3
       - name: cache deps
         uses: actions/cache@v3
-          with: 
-            path: ~/.npm
-            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
+        with: 
+          path: ~/.npm
+          key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run test
@@ -28,9 +28,9 @@ jobs:
         uses: actions/checkout@v3
       - name: cache deps
         uses: actions/cache@v3
-          with: 
-            path: ~/.npm
-            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
+        with: 
+          path: ~/.npm
+          key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run lint
@@ -43,9 +43,9 @@ jobs:
         uses: actions/checkout@v3
       - name: cache deps
         uses: actions/cache@v3
-          with: 
-            path: ~/.npm
-            key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
+        with: 
+          path: ~/.npm
+          key: node-modules-{{ hashFiles( '**/package-lock.json' ) }}
       - name: ustanovka zavisimosti
         run: npm ci
       - name: run build
