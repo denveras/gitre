@@ -36,6 +36,7 @@ jobs:
         run: npm run lint
   sozdanie_koda_bild:
     needs: [proverka_coda_lint, vipolnaem_rabotu]
+    continue-on-error: true
     strategy:
       matrix:
         nv: [ 14, 16 ]

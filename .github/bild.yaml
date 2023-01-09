@@ -1,0 +1,24 @@
+name: bild
+on: [ push, workflow_dispatch ]
+jobs:
+  build_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get kode
+        uses: actions/checkout@v3
+      - name: instal debs
+        run: npm ci
+      - name: build proekt
+        run: npm run build
+      - name: artifakt
+        uses: actions/upload-artifact@v3
+        with:
+          path: build
+          name: build_file
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get build proekt
+        uses: actions/dowload-artifact@v3
+        with:
+          name: build_file
