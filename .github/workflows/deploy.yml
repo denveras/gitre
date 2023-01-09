@@ -35,11 +35,19 @@ jobs:
       - name: run lint
         run: npm run lint
   sozdanie_koda_bild:
-    runs-on: ubuntu-latest
     needs: [proverka_coda_lint, vipolnaem_rabotu]
+    strategy:
+      matrix:
+        nv: [ 14, 16 ]
+        os: [ ubuntu-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: poluchit` repositoriy kode
         uses: actions/checkout@v3
+      - name: ustanovka NODE
+        uses: actions/setup-node@v3
+        with: 
+          node-version: ${{ matrix.nv }}
       - name: cache deps
         uses: actions/cache@v3
         with: 
