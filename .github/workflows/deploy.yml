@@ -1,7 +1,8 @@
 name: razvertivanie deploy
 on: 
   push:
-    - branches: master
+    branches: 
+      - master
 jobs:
   vipolnaem_rabotu:
     runs-on: ubuntu-latest
